@@ -1,23 +1,116 @@
 @font-face {
-    font-family: 'CustomFont';
+    font-family: 'DMSansBold';
     src: url('/assets/DM_Sans/static/DMSans-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'DMSansLight';
+    src: url('/assets/DM_Sans/static/DMSans-Light.ttf');
+}
+
+:root {
+    --white: #f4f4f4;
+    --accent: #ffb73d;
 }
 
 body {
     background-color: #1e1f22;
-    color: #f4f4f4;
-    font-family: "CustomFont";
+    color: var(--white);
+    font-family: "DMSansBold";
     border: 1px solid;
-    padding: 0%;
+    height: 700px;
 }
 
 .title {
-    border: 1px solid;
-    font-size: 24px;
+    /* border: 1px solid; */
+    font-size: 36px;
     text-align: center;
     margin: 1em auto;
 }
 
 .to {
-    color: #ffb73d;
+    color: var(--accent);
+}
+
+.container {
+    display: grid;
+    width: 35%;;
+    grid-template-columns: 3fr 1fr 3fr;
+    grid-template-rows: repeat(6, 1fr);
+    margin: 0 auto;
+    /* border: 2px solid red; */
+}
+
+.element {
+    margin: 0 auto;
+    /* border: 1px solid blue; */
+}
+
+.celcius {
+    grid-area: 1/1/1/1;
+}
+
+.switch {
+    grid-area: 1/2/1/2;
+    background-color: transparent;
+    border: none;
+}
+
+.icon {
+    max-height: 20px;
+}
+
+.fahrenheit {
+    grid-area: 1/3/1/3;
+}
+
+.text {
+    margin: 0 auto;
+    background-color: #303134;
+    border: 2px solid grey;
+    border-radius: 12px;
+    font-family: "DMSansLight";
+    font-size: larger;
+    padding: 0 1em;
+    max-width: 8em;
+    color: var(--white);
+}
+
+.c {
+    grid-area: 2/1/5/1;
+}
+
+button {
+    transition: transform 0.5s ease;
+}
+
+button:hover {
+    transform: scale(1.07);
+    cursor: pointer;
+}
+
+.convert {
+    grid-area: 2/2/4/2;
+    font-family: "DMSansBold";
+    background-color: var(--accent);
+    border: none;
+    border-radius: 12px;
+    padding: 0;
+    min-height: 2em;
+    max-height: 2em;
+    margin: 10px 0;
+}
+
+
+.reset {
+    grid-area: 4/2/5/2;
+    font-family: "DMSansBold";
+    background-color: transparent;
+    color: grey;
+    border: none;
+}
+
+.f {
+    grid-area: 2/3/5/3;
+    
 }
