@@ -8,41 +8,41 @@ const reset = document.querySelector(".reset");
 const formula = document.querySelector(".formula");
 
 swap.onclick = toFahr;
-convert.onclick = convertDegree(celcText);
+convert.onclick = () => convertDegree(celcText.innerText); 
 reset.onclick = zeroDegree;
 
 function toFahr() {
-    // console.log("to fahrenthai");
     celcText.innerText = "Fahrenheit";
     fahrText.innerText = "Celcius";
     const celcTemp = celc.value;
     celc.value = fahr.value;
     fahr.value = celcTemp;
     swap.onclick = toCelc;
+    convertDegree(celcText.innerText);
 }
 
 function toCelc() {
-    // console.log("to celcius");
     celcText.innerText = "Celcius";
     fahrText.innerText = "Fahrenheit";
     const celcTemp = celc.value;
     celc.value = fahr.value;
     fahr.value = celcTemp;
     swap.onclick = toFahr;
+    convertDegree(celcText.innerText);
 }
 
 function convertDegree(degree) {
-    const derajat = celc.value;
-    console.log(derajat);
-    if (degree == "Celcius") {
-        console.log("nice");
-        fahr.value = (parseInt(celc.value) * (9/5)) + 32;
-    } else if (degree = "Fahrenheit") {
-
+    if (degree === "Celcius") {
+        fahr.value = (parseFloat(celc.value) * (9/5)) + 32;
+        formula.innerText = `(${celc.value}°C x 9/5) + 32 = ${fahr.value}°F`
+    } else if (degree === "Fahrenheit") {
+        fahr.value = (parseFloat(celc.value) - 32) * (5/9);
+        formula.innerText = `(${celc.value}°F - 32) x 5/9 = ${fahr.value}°C`
     }
 }
 
 function zeroDegree() {
     celc.value = '';
     fahr.value = '';
+    formula.innerText = '. . .';
 }
